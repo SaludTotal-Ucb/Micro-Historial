@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "^1.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "biome check .",
+    "format": "biome format ."
+  },
+
+  "lint-staged": {
+    "*.js": [
+      "biome format",
+      "biome check --quiet"
+    ]
+  }
+}
+ 
+

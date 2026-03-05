@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "formatter": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2
+  },
+  "linter": {
+    "enabled": true,
+    "extends": ["biome:recommended"],
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-undef": "error"
+    }
+  }
+}
