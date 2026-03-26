@@ -9,13 +9,13 @@
     "lint": "biome check .",
     "format": "biome format ."
   },
-
   "lint-staged": {
     "*.js": [
       "biome format",
       "biome check --quiet"
     ]
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.100.0"
   }
 }
- 
-
