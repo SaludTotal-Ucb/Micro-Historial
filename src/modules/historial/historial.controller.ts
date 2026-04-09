@@ -27,6 +27,11 @@ export class HistorialController {
     return this.historialService.obtenerEstadisticas(userId);
   }
 
+  @Get('paciente/:pacienteId')
+  findByPaciente(@Param('pacienteId') pacienteId: string, @GetUserId() userId: string) {
+    return this.historialService.findByPaciente(pacienteId, userId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string, @GetUserId() userId: string) {
     return this.historialService.findOne(id, userId);

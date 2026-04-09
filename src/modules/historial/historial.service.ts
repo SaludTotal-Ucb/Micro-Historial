@@ -30,6 +30,26 @@ export class HistorialService {
     return data;
   }
 
+  async findByPaciente(pacienteId: string, userId: string) {
+    // Buscar historial para un paciente particular, retornando array para no romper mapeo.
+    try {
+      const { data, error } = await this.db.from('historiales')
+        .select('*, recetas(*), evoluciones(*)')
+        .eq('paciente_id', pacienteId)
+        .eq('user_id', userId)
+        .order('fecha', { ascending: false });
+        
+      if (error) {
+        console.error('⚠️ Supabase Error en findByPaciente:', error);
+        return [];
+      }
+      return data || [];
+    } catch (e) {
+      console.error('⚠️ Excepción en findByPaciente:', e);
+      return [];
+    }
+  }
+
   async findOne(id: string, userId: string) {
     const { data, error } = await this.db.from('historiales')
       .select('*, recetas(*), evoluciones(*)').eq('id', id).eq('user_id', userId).single();

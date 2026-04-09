@@ -16,6 +16,7 @@ export class EvolucionDto {
 }
 
 export class CreateHistorialDto {
+  @IsString() paciente_id: string;
   @IsString() @MinLength(3) diagnostico: string;
   @IsOptional() @IsString() descripcion?: string;
   @IsEnum(DiagnosticoSeveridad) severidad: DiagnosticoSeveridad;
